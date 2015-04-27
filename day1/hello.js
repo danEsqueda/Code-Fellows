@@ -1,5 +1,5 @@
 var greet = require('./greet.js');
-var aGreetObject = greet("Hello World", "Good Bye World");
+var aGreetObject = greet("Hello World");
 
 //customize what message is said in the module
 

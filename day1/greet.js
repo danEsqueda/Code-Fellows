@@ -1,10 +1,8 @@
-module.exports = function(helloMsg, goodByeMsg) {
+module.exports = function(message) {
   return {
             sayHello : function() {
-              return helloMsg;
+              return message;
             }
-            sayGoodBye : function() {
-              return goodByeMsg
-            }
+
          };
 }
