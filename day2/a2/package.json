@@ -1,0 +1,16 @@
+{
+  "name": "a2",
+  "version": "1.0.0",
+  "description": "Grunt assignment for day2 of javascript development accelerator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Daniel Esqueda",
+  "license": "ISC",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.11.2",
+    "grunt-simple-mocha": "^0.4.0"
+  }
+}
