@@ -1,0 +1,17 @@
+{
+  "name": "grunt_ex",
+  "version": "0.0.1",
+  "description": "Day 2 grunt examples",
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "keywords": [
+    "examples"
+  ],
+  "author": "Daniel Esqueda",
+  "license": "ISC",
+  "devDependencies": {
+    "grunt": "^0.4.5"
+  }
+}
