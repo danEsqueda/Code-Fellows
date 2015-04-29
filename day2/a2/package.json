@@ -4,7 +4,7 @@
   "description": "Grunt assignment for day2 of javascript development accelerator",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "grunt test"
   },
   "author": "Daniel Esqueda",
   "license": "ISC",
