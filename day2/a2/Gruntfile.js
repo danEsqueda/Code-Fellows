@@ -1,5 +1,9 @@
 module.exports = function(grunt) {
 
+  grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-simple-mocha');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+
   grunt.initConfig({
     jshint: {
       all: {
@@ -7,31 +11,25 @@ module.exports = function(grunt) {
           node: true,
           mocha: true,
         },
-        src:
+        src: ['./*.js', './test/**/*.js']
       }
-      files: ['./*.js', './test/**/*_test.js']
     },
+
     simplemocha: {
-      files: ['./test/**/*_test.js']
+      all: {
+        src: ['./test/**/*_test.js']
+      }
     },
+
     watch: {
       files: ['./*.js', './test/**/*_test.js'],
       tasks: ['simplemocha', 'jshint']
     }
+
   });
 
 
-  // Load the plugin that provides the jshint task
-  grunt.loadNpmTasks('grunt-contrib-jshint');
-
-  // Load the plugin that provides the mocha task
-  grunt.loadNpmTasks('grunt-simple-mocha');
-
-  grunt.loadNpmTasks('grunt-contrib-watch');
-
   grunt.registerTask('test', ['simplemocha']);
-
-  // Default tasks
   grunt.registerTask('default', ['jshint', 'simplemocha']);
 
 };
