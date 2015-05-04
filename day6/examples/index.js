@@ -1,0 +1,1 @@
+var stdinReader = require
