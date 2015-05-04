@@ -1,9 +1,45 @@
+'use strict';
+
 var fs = require('fs');
 var bitmap = fs.readFileSync('test.bmp');
 
+var bitmapObject = {};
 
-var bitmapObject = {
+bitmapObject.type = bitmap.toString('utf-8', 0, 2);
+bitmapObject.size = bitmap.readInt32LE(2);
+// Unused bits one and two
+bitmapObject.startOfPixels = bitmap.readInt32LE(10);
+bitmapObject.dibSize = bitmap.readInt32LE(14);
+// Assume we have a WINDOWSBITMAPHEADER;
+// how could we confirm this?
+bitmapObject.width = bitmap.readInt32LE(18);
+bitmapObject.height = bitmap.readInt32LE(22);
+// Color planes. Should be one.
+bitmapObject.colorDepth = bitmap.readInt16LE(28);
+// Compression method.
+// Image size.
+// Horizontal resolution.
+// Vertical resolution.
+bitmapObject.paletteSize = bitmap.readInt32LE(46);
+bitmapObject.palette = [];
+var paletteStart = 14 + bitmapObject.dibSize;
+var paletteEnd = paletteStart + bitmapObject.paletteSize;
 
+
+bitmapObject.readPalette = function() {
+
+  for (var i = 55; i < 181; i++) {
+    bitmapObject.palette.push(bitmap.readUInt32LE(i));
+  }
 }
 
-console.log(bitmap.toString('utf-8', 0, 14));
+// To do: Read in color palette.
+// Transform color palatte.
+// Write palette changes to buffer and then to file.
+bitmapObject.paletteTest = bitmap.readInt32LE(55);
+bitmapObject.readPalette();
+console.log(bitmapObject.palette);
+console.dir(bitmapObject);
+
+
+
