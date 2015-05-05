@@ -5,10 +5,14 @@ var chai = require('chai');
 var chaiHttp = require('chai-http');
 
 
-  // TODO: add module name here
-  // add additional tests here (one for date and one for hello)
-  describe('time', function() {
-  it('should return the current time', function() {
-    expect(greet('hello world').sayMessage()).to.eql('hello world');
+
+  describe('basic_http_server', function() {
+
+  it('should return the current time', function(done) {
+    chai.request('http://localhost:')
+  });
+
+  it('should return the greet name', function() {
+
   });
 });
