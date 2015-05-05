@@ -6,13 +6,15 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     jshint: {
+
       all: {
         options: {
           node: true,
           mocha: true,
+          expr: true,
         },
         src: ['./*.js', './test/**/*.js']
-      }
+      },
     },
 
     jscs: {
@@ -28,6 +30,7 @@ module.exports = function(grunt) {
     }
   });
 
+  grunt.registerTask('test', ['simplemocha']);
   grunt.registerTask('style', ['jscs']);
   grunt.registerTask('default', ['jshint', 'simplemocha']);
 

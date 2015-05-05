@@ -1,3 +1,4 @@
 var server = require('./basic_http_server.js');
 
-server.start();
+server().listen(8888);
+
