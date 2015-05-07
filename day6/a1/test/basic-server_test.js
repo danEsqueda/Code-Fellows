@@ -27,3 +27,5 @@ describe('basic_http_server', function() {
     done();
   });
 });
+
+// idea: expect(response.text).to.eql('John');
