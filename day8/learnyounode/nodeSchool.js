@@ -16,32 +16,32 @@
 
 // learnyounode 4
 
-var fs = require('fs');
-var lines = 0;
+// var fs = require('fs');
+// var lines = 0;
 
-function readFile(callback) {
-  fs.readFile(process.argv[2], 'utf8', function(err, fileContents) {
-    lines = fileContents.split('\n').length - 1;
-    callback();
-  });
-}
+// function readFile(callback) {
+//   fs.readFile(process.argv[2], 'utf8', function(err, fileContents) {
+//     lines = fileContents.split('\n').length - 1;
+//     callback();
+//   });
+// }
 
-function logNumberOfLines() {
-  console.log(lines);
-}
+// function logNumberOfLines() {
+//   console.log(lines);
+// }
 
-readFile(logNumberOfLines);
+// readFile(logNumberOfLines);
 
 // their solution
 
-var fs = require('fs')
-var file = process.argv[2]
+// var fs = require('fs')
+// var file = process.argv[2]
 
-fs.readFile(file, function (err, contents) {
-  // fs.readFile(file, 'utf8', callback) can also be used
-  var lines = contents.toString().split('\n').length - 1
-  console.log(lines)
-});
+// fs.readFile(file, function (err, contents) {
+//   // fs.readFile(file, 'utf8', callback) can also be used
+//   var lines = contents.toString().split('\n').length - 1
+//   console.log(lines)
+// });
 
 // learnyounode 5
 
@@ -50,6 +50,13 @@ var fs = require('fs');
 
 
 fs.readdir(process.argv[2], function(err, files) {
-
+  var extension = '.' + process.argv[3];
+  files.forEach(function(file) {
+    if (path.extname(file) === extension) {
+      console.log(file);
+    }
+  });
 });
+
+// learnyounode 6
 
